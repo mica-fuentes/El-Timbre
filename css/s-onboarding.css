@@ -1,0 +1,67 @@
+/* 01 · Arranque */
+.splash { position: absolute; inset: 0; overflow: hidden; cursor: pointer; background: #0b0d12; }
+.sp-trama { position: absolute; inset: 0; background: url(../images/trama-noche.png) -94.86px 13.76px / 194.764px 227.962px repeat; animation: drift 40s linear infinite; }
+@keyframes drift { to { background-position: 99.92px 241.69px; } }
+.sp-caja { position: absolute; inset: 0; background: rgba(11, 13, 18, .95); }
+.sp-aura { position: absolute; left: -196px; top: 62px; width: 775px; height: 686px; animation: breathe 6s ease-in-out infinite; }
+.sp-velo { position: absolute; left: -107px; top: 122px; width: 582px; height: 566px; animation: breathe 6s ease-in-out infinite reverse; }
+@keyframes breathe { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.07); opacity: 1; } }
+.sp-line { position: absolute; left: 0; width: 390px; height: 1.5px; background: var(--line-2); }
+.sp-logo { position: absolute; left: 50px; top: 341.76px; width: 290px; height: 160.485px; font-family: var(--f-logo); white-space: nowrap; }
+.sp-el { position: absolute; left: 113.09px; top: 0; font-size: 60.065px; line-height: normal; color: #e8ecee; }
+.sp-timbre { position: absolute; left: 0; top: 50.68px; font-size: 97.605px; line-height: normal; }
+.sp-logo span { display: inline-block; animation: letter 800ms var(--ease-spring) both; animation-delay: calc(var(--i) * 80ms + 250ms); }
+@keyframes letter { from { transform: translateY(38px) rotate(-8deg) scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+.splash:hover .sp-timbre span { animation: wob 900ms var(--ease-spring) both; animation-delay: calc(var(--i) * 40ms); }
+@keyframes wob { 30% { transform: translateY(-6px) rotate(3deg); } 100% { transform: none; } }
+.sp-foot { position: absolute; left: 0; width: 390px; top: 792px; text-align: center; font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: var(--text-3); }
+.sp-hint { position: absolute; left: 0; width: 390px; top: 560px; text-align: center; font: 400 9px/12px var(--f-mono); letter-spacing: 2.2px; color: var(--text-3); animation: hint 2.4s ease-in-out 1.6s infinite; opacity: 0; }
+@keyframes hint { 0%, 100% { opacity: 0; } 50% { opacity: .9; } }
+
+/* 02 · 03 · registro */
+.ob { position: absolute; inset: 0; }
+.ob-h { position: absolute; left: 20px; top: 100px; width: 350px; }
+.ob-p { position: absolute; left: 20px; top: 146px; width: 350px; }
+.ob-p2 { top: 176px; }
+.pick-grid { position: absolute; left: 0; top: 0; width: 390px; height: 600px; pointer-events: none; }
+.pick { position: absolute; width: 169px; height: 166px; overflow: hidden; text-align: left; pointer-events: auto; background: var(--skeleton); transition: transform var(--t-med) var(--ease-out); }
+.pick img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out), filter 300ms; filter: saturate(.7) brightness(.82); }
+.pick.on img { filter: none; }
+.pick-veil { position: absolute; inset: 0; background: rgba(42, 49, 66, .35); transition: opacity .3s; }
+.pick.on .pick-veil { opacity: .6; }
+.pick:hover img { transform: scale(1.07); filter: saturate(1) brightness(1); }
+.pick:active { transform: scale(.97); }
+.pick-badge { position: absolute; left: 136px; top: 9px; width: 24px; height: 24px; border-radius: 12px; border: 1px solid rgba(239, 231, 218, .55); display: grid; place-items: center; transition: background-color .25s, border-color .25s, transform 360ms var(--ease-spring); color: var(--on-accent); }
+.pick-badge .ico { font-size: 15px; opacity: 0; transform: scale(.3); transition: opacity .2s, transform 360ms var(--ease-spring); }
+.pick.on .pick-badge { background: var(--ac); border-color: transparent; }
+.pick.on .pick-badge .ico { opacity: 1; transform: none; }
+.pick.pop .pick-badge { animation: pop 420ms var(--ease-spring); }
+.pick-name { position: absolute; left: 8px; top: 141px; font: 400 12px/normal var(--f-black); letter-spacing: 0; color: #efe7da; text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
+.pick-bar { position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--ac); transform: scaleX(0); transform-origin: left; transition: transform 380ms var(--ease-out); }
+.pick.on .pick-bar { transform: scaleX(1); }
+.pick { color: var(--text); }
+.bell { position: absolute; left: 20px; top: 588px; width: 350px; height: 62px; }
+.bell-i { position: absolute; left: 14px; top: 21px; width: 20px; height: 20px; color: var(--cum); }
+.bell-i .ico { font-size: 20px; }
+.bell-t { position: absolute; left: 46px; top: 13.5px; }
+.bell-t b { display: block; font: 600 13.5px/20px var(--f-body); }
+.bell-t small { display: block; font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: var(--text-3); margin-top: 3px; }
+.bell .switch { position: absolute; left: 292px; top: 18px; }
+.ob-foot { position: absolute; inset: 0; pointer-events: none; }
+.ob-foot .t-micro { position: absolute; right: 20px; top: 728px; }
+.cta-dock { z-index: 30; }
+
+/* 03 */
+.kstack { position: absolute; left: 20px; top: 232px; width: 350px; display: flex; flex-direction: column; gap: 8px; }
+.kcard { position: relative; height: 96px; }
+.kname { position: absolute; left: 34px; top: 11px; font: 400 16px/20px var(--f-black); letter-spacing: -.1px; }
+.kname .hdot { position: absolute; left: -18px; top: 5px; width: 10px; height: 10px; }
+.ksub { position: absolute; left: 34px; top: 31px; }
+.kpills { position: absolute; left: 16px; top: 50px; width: 318px; height: 34px; }
+.kpill { position: absolute; top: 0; width: 150px; height: 34px; border-radius: 17px; border: 1px solid var(--line-3); font: 400 10px/14px var(--f-mono); letter-spacing: 1.4px; color: var(--text-2); transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast), transform var(--t-fast) var(--ease-out); }
+.kpill:first-child { left: 0; } .kpill:last-child { left: 158px; }
+.kpill:hover { border-color: var(--text-2); color: var(--text); transform: translateY(-1px); }
+.kpill.on { background: var(--ac); border-color: transparent; color: var(--on-accent); font-weight: 700; }
+.kbox { position: absolute; left: 20px; top: calc(232px + var(--n, 3) * 104px + 8px); width: 350px; border: 1px solid var(--line-3); border-radius: 14px; padding: 16px; }
+.kbox-k { font: 700 9px/normal var(--f-mono); letter-spacing: 1.3px; color: var(--cum-t); }
+.kbox p:not(.kbox-k) { font: 400 12.5px/18px var(--f-body); color: var(--text-4); margin-top: 4px; }

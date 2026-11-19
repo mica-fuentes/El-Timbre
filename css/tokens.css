@@ -1,0 +1,73 @@
+/* ───────────────────────────────────────────────────────────
+   El Timbre · tokens de diseño
+   Fuente: Figma "La Cuadra — Repertorio visual" → 31 · Sistema de diseño
+   ─────────────────────────────────────────────────────────── */
+:root {
+  /* Color · casas */
+  --reg: #59C2C9;
+  --cum: #D62A6E;
+  --fol: #E3922A;
+  --rock: #2E8B72;
+  /* Variantes accesibles (texto chico / relleno con texto oscuro) */
+  --cum-t: #DC4A84;
+  --rock-t: #35A083;
+
+  /* Color · noche */
+  --bg: #0B0D12;
+  --surface: #141926;
+  --elev: #1C2231;
+  --skeleton: #252C3D;
+  --text: #EFE7DA;
+  --on-accent: #0B0D12;
+  --text-2: rgba(239, 231, 218, .66);
+  --text-3: rgba(239, 231, 218, .52);
+  --text-4: rgba(239, 231, 218, .78);
+  --line: rgba(239, 231, 218, .10);
+  --line-2: rgba(239, 231, 218, .20);
+  --line-3: rgba(239, 231, 218, .35);
+
+  /* Acción principal */
+  --cta: #DC4A84;
+
+  /* Tipografía */
+  --f-logo: 'Barrio', 'Archivo Black', system-ui, sans-serif;
+  --f-black: 'Archivo Black', 'Archivo', system-ui, sans-serif;
+  --f-body: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Espacio (grilla de 4/8) y radios */
+  --m: 20px;
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(.22, .9, .3, 1);
+  --ease-spring: cubic-bezier(.34, 1.45, .5, 1);
+  --t-fast: 140ms;
+  --t-med: 280ms;
+}
+
+/* Color · día */
+[data-theme="day"] {
+  --bg: #F2EBDD;
+  --surface: #FBF6EB;
+  --elev: #FFFFFF;
+  --skeleton: #E4DBC8;
+  --text: #171717;
+  --on-accent: #0B0D12;
+  --text-2: rgba(23, 23, 23, .70);
+  --text-3: rgba(23, 23, 23, .56);
+  --text-4: rgba(23, 23, 23, .80);
+  --line: rgba(23, 23, 23, .10);
+  --line-2: rgba(23, 23, 23, .20);
+  --line-3: rgba(23, 23, 23, .35);
+}
+
+/* Acento por casa — se aplica con .h-reg / .h-cum / .h-fol / .h-rock */
+.h-reg  { --ac: var(--reg);  --ac-t: var(--reg);   --ac-fill: var(--reg); }
+.h-cum  { --ac: var(--cum);  --ac-t: var(--cum-t); --ac-fill: var(--cum-t); }
+.h-fol  { --ac: var(--fol);  --ac-t: var(--fol);   --ac-fill: var(--fol); }
+.h-rock { --ac: var(--rock); --ac-t: var(--rock-t); --ac-fill: var(--rock); }

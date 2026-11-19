@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es-AR" data-theme="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0D12">
+  <title>El Timbre · prototipo</title>
+  <meta name="description" content="Prototipo navegable de El Timbre: la app de La Cuadra para escuchar reguetón, cumbia, folclore y rock.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23DC4A84'/%3E%3Ctext x='16' y='21' font-family='Arial Black,sans-serif' font-size='13' text-anchor='middle' fill='%230B0D12'%3ELC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/s-onboarding.css">
+  <link rel="stylesheet" href="css/s-home.css">
+  <link rel="stylesheet" href="css/s-casa.css">
+  <link rel="stylesheet" href="css/s-discover.css">
+  <link rel="stylesheet" href="css/s-listen.css">
+  <link rel="stylesheet" href="css/s-festival.css">
+  <link rel="stylesheet" href="css/s-vos.css">
+  <link rel="stylesheet" href="css/s-concurso.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="side side-l" id="side-l" aria-label="Mapa de pantallas"></aside>
+
+    <main class="device">
+      <div class="phone" id="phone" data-theme="night">
+        <div id="view"></div>
+
+        <div class="mini hide h-cum" id="mini">
+          <button class="mini-open" data-act="openPlayer" aria-label="Abrir reproductor">
+            <img class="mini-thumb" alt="" src="images/tema-cumbia.jpg">
+            <span class="mini-t"></span>
+            <span class="mini-s"></span>
+          </button>
+          <button class="mb mb-play" data-act="miniToggle" aria-label="Pausar o reproducir"></button>
+          <button class="mb mb-next" data-act="miniNext" aria-label="Siguiente tema"></button>
+          <div class="prog"><i></i></div>
+        </div>
+
+        <div class="tabbar hide" id="tabbar">
+          <nav aria-label="Navegación principal"></nav>
+        </div>
+
+        <div class="sb" id="sb" aria-hidden="true">
+          <time>9:41</time>
+          <span class="sb-i sig"></span><span class="sb-i wifi"></span><span class="sb-i bat"></span>
+        </div>
+        <div class="home-ind"></div>
+      </div>
+    </main>
+
+    <aside class="side side-r" id="side-r" aria-label="Opciones de la demo"></aside>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/icons2.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/screens/onboarding.js"></script>
+  <script src="js/screens/home.js"></script>
+  <script src="js/screens/casa.js"></script>
+  <script src="js/screens/discover.js"></script>
+  <script src="js/screens/listen.js"></script>
+  <script src="js/screens/festival.js"></script>
+  <script src="js/screens/vos.js"></script>
+  <script src="js/screens/concurso.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Timbre · sistema de diseño</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0b0d12; color: #efe7da; font-family: var(--f-body); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 34px; }
+    h1 { margin: 0; font: 400 28px/1 var(--f-logo); display: inline; }
+    .k { font: 400 10px/12px var(--f-mono); letter-spacing: 1.8px; text-transform: uppercase; color: rgba(239,231,218,.52); }
+    .m { font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; text-transform: uppercase; color: rgba(239,231,218,.52); }
+    .lead { max-width: 620px; font-size: 13.5px; line-height: 20px; color: rgba(239,231,218,.66); margin: 18px 0 40px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .col > .k { display: block; margin: 0 0 18px; }
+    .col > .k:not(:first-child) { margin-top: 34px; }
+    .sw { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .sw i { width: 36px; height: 36px; border-radius: 9px; border: 1px solid rgba(239,231,218,.1); flex: none; }
+    .sw b { display: block; font: 600 12px/17px var(--f-body); }
+    .t { margin-bottom: 22px; }
+    .t .m { display: block; margin-bottom: 8px; }
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 22px; border-radius: 20px; font: 400 13.5px/18px var(--f-black); letter-spacing: -.1px; }
+    .btn svg { width: 17px; height: 17px; }
+    .pri { background: #dc4a84; color: #0b0d12; } .out { border: 1px solid #d62a6e; color: #dc4a84; }
+    .pl { display: inline-flex; align-items: center; height: 34px; padding: 0 16px; border-radius: 17px; font: 700 10px/14px var(--f-mono); letter-spacing: 1.4px; }
+    .ico-g { display: grid; grid-template-columns: repeat(5, 22px); gap: 16px; }
+    .ico-g svg { width: 22px; height: 22px; color: #efe7da; }
+    .row { display: flex; justify-content: space-between; gap: 10px; font: 400 12px/17px var(--f-body); color: rgba(239,231,218,.66); margin-bottom: 10px; }
+    .row span:last-child { font: 400 9px/17px var(--f-mono); letter-spacing: 1.3px; color: rgba(239,231,218,.52); text-align: right; }
+    .tr { background: #141926; border-radius: 14px; height: 56px; display: flex; align-items: center; padding: 0 16px; gap: 16px; margin-bottom: 12px; }
+    .tr small { font: 400 12px/1 var(--f-mono); color: rgba(239,231,218,.52); width: 14px; text-align: center; }
+    .tr div { flex: 1; } .tr b { display: block; font: 600 13.5px/20px var(--f-body); } .tr em { font-style: normal; font-size: 12px; color: rgba(239,231,218,.52); }
+    .tr time { font: 400 10px/1 var(--f-mono); color: rgba(239,231,218,.52); }
+    .mp { position: relative; background: #1c2231; border-radius: 14px; height: 58px; display: flex; align-items: center; gap: 12px; padding: 0 16px 0 8px; margin: 22px 0; overflow: hidden; }
+    .mp img { width: 42px; height: 42px; border-radius: 8px; object-fit: cover; }
+    .mp div { flex: 1; } .mp b { display: block; font: 600 12px/17px var(--f-body); } .mp small { font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: rgba(239,231,218,.52); }
+    .mp svg { width: 19px; height: 19px; } .mp i { position: absolute; left: 0; bottom: 0; width: 42%; height: 2px; background: #d62a6e; }
+    .tb { background: #0b0d12; border-top: 1px solid rgba(239,231,218,.1); display: grid; grid-template-columns: repeat(5, 1fr); padding: 10px 0 14px; }
+    .tb div { text-align: center; position: relative; } .tb svg { width: 21px; height: 21px; display: block; margin: 0 auto 5px; } .tb span { font: 400 8.5px/1 var(--f-mono); letter-spacing: .7px; color: rgba(239,231,218,.52); }
+    .tb .on span { color: #efe7da; } .tb .on::before { content: ""; position: absolute; top: -11px; left: 50%; width: 26px; height: 2.5px; margin-left: -13px; background: #d62a6e; }
+    hr { border: 0; height: 1px; background: rgba(239,231,218,.1); margin: 40px 0 28px; }
+    .states { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    @media (max-width: 900px) { .states { grid-template-columns: 1fr 1fr; } }
+    .st { background: #141926; border: 1px solid rgba(239,231,218,.1); border-radius: 14px; height: 168px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; gap: 6px; }
+    .st svg { width: 30px; height: 30px; margin-bottom: 8px; } .st b { font: 600 13.5px/20px var(--f-body); } .st p { margin: 0; font-size: 12px; line-height: 17px; color: rgba(239,231,218,.52); max-width: 216px; }
+    .sk i { display: block; height: 11px; border-radius: 5.5px; background: #252c3d; margin-bottom: 9px; width: 100%; }
+    .back { display: inline-block; margin-top: 30px; font: 400 10px/12px var(--f-mono); letter-spacing: 1.8px; color: rgba(239,231,218,.66); border-bottom: 1px solid rgba(239,231,218,.2); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="root"></div>
+  <script src="js/icons.js"></script>
+  <script src="js/icons2.js"></script>
+  <script>
+    const ico = (n) => { const i = ICONS[n]; return `<svg viewBox="${i.vb}" fill="none" aria-hidden="true">${i.d}</svg>`; };
+    const sw = (c, n, d, bd) => `<div class="sw"><i style="background:${c}"></i><div><b>${n}</b><span class="m">${d}</span></div></div>`;
+    const type = (m, s, f, ls, t, lh, extra = '') => `<div class="t"><span class="m">${m}</span><div style="font:400 ${s}px/${lh}px ${f};letter-spacing:${ls}px;${extra}">${t}</div></div>`;
+    document.getElementById('root').innerHTML = `
+      <div><h1>El Timbre</h1> <span class="k" style="margin-left:6px">Sistema de diseño de la app</span></div>
+      <p class="lead">Todo lo que se ve en las otras pantallas sale de acá: cuatro colores de casa sobre un fondo casi negro, una escala tipográfica de ocho pasos, grilla de 8 y ningún target por debajo de 44.</p>
+      <div class="grid">
+        <div class="col">
+          <span class="k">Color · casas</span>
+          ${sw('#59C2C9', 'Reguetón', '#59C2C9 · acento de casa')}${sw('#D62A6E', 'Cumbia', '#D62A6E · acento de casa')}${sw('#E3922A', 'Folclore', '#E3922A · acento de casa')}${sw('#2E8B72', 'Rock', '#2E8B72 · acento de casa')}
+          <span class="k">Color · noche</span>
+          ${sw('#0B0D12', 'Fondo', '#0B0D12 · base')}${sw('#141926', 'Superficie', '#141926 · tarjetas')}${sw('#1C2231', 'Elevada', '#1C2231 · reproductor')}${sw('#EFE7DA', 'Texto', '#EFE7DA · lectura')}
+          <span class="k">Color · día</span>
+          ${sw('#F2EBDD', 'Fondo', '#F2EBDD · papel crudo')}${sw('#FBF6EB', 'Superficie', '#FBF6EB · tarjetas')}${sw('#171717', 'Texto', '#171717 · lectura')}
+          <span class="k">Variantes accesibles</span>
+          <p style="font-size:12px;line-height:17px;color:rgba(239,231,218,.52);margin:0 0 16px">El color de marca se mantiene para manchas y dibujos. El texto chico sobre fondo oscuro usa una versión aclarada, y las pastillas con texto casi negro usan el relleno de abajo. Todo llega a 4,5:1.</p>
+          ${sw('#DC4A84', 'Cumbia · texto', '#DC4A84 · 4,96:1')}${sw('#35A083', 'Rock · texto', '#35A083 · 6,02:1')}
+        </div>
+        <div class="col">
+          <span class="k">Tipografía</span>
+          ${type('Display · 34/34', 34, 'var(--f-black)', -1.2, 'Elegí tu casa', 34)}
+          ${type('Título 1 · 26/28', 26, 'var(--f-black)', -.8, 'Cumbia para la ronda', 28)}
+          ${type('Título 2 · 19/22', 19, 'var(--f-black)', -.4, 'Hoy en la cuadra', 22)}
+          ${type('Título 3 · 15/18', 15, 'var(--f-black)', -.1, 'Peñas de octubre', 18)}
+          ${type('Cuerpo · 15/22', 15, 'var(--f-body)', 0, 'Lo que se baila en las rondas de la cuadra.', 22)}
+          ${type('Cuerpo chico · 13.5/20', 13.5, 'var(--f-body)', 0, 'Se actualiza todos los martes.', 20)}
+          ${type('Dato · 10/12', 10, 'var(--f-mono)', 1.8, 'JUE 1 DE OCTUBRE', 12)}
+          ${type('Micro · 9/12', 9, 'var(--f-mono)', 1.3, '1.284 ESCUCHANDO', 12)}
+          <span class="k" style="display:block;margin-top:34px">Logo</span>
+          <div style="font:400 44px/1 var(--f-logo)"><span style="color:#e8ecee;font-size:28px">EL</span><br><span style="color:#dc4a84">T</span><span style="color:#e3922a">I</span><span style="color:#2e8b72">M</span><span style="color:#59c2c9">B</span><span style="color:#dc4a84">R</span><span style="color:#e3922a">E</span></div>
+        </div>
+        <div class="col">
+          <span class="k">Botones y estados</span>
+          <div class="btns"><span class="btn pri">${ico('play')}Escuchar</span><span class="btn out">Seguir</span></div>
+          <div class="btns"><span class="pl" style="background:#dc4a84;color:#0b0d12">ACTIVO</span><span class="pl" style="border:1px solid rgba(239,231,218,.2);color:rgba(239,231,218,.66);font-weight:400">NORMAL</span><span class="pl" style="background:#e3922a;color:#0b0d12">FOLCLORE</span></div>
+          <span class="k" style="display:block;margin:34px 0 18px">Íconos · 22 px, trazo 1,8</span>
+          <div class="ico-g">${['home', 'playlists', 'wave', 'star', 'user', 'search', 'heart', 'plus', 'calendar', 'pin', 'ticket', 'share', 'download', 'bell', 'sun', 'shuffle', 'repeat', 'volume', 'more', 'filter', 'clock'].map(ico).join('')}</div>
+          <span class="k" style="display:block;margin:34px 0 18px">Grilla y medidas</span>
+          <div class="row"><span>Lienzo</span><span>390 × 844</span></div><div class="row"><span>Margen lateral</span><span>20</span></div>
+          <div class="row"><span>Escalón de espacio</span><span>4 · 8 · 12 · 16 · 20 · 24 · 32</span></div><div class="row"><span>Radios</span><span>8 · 14 · 20 · 28 · PÍLDORA</span></div>
+          <div class="row"><span>Target mínimo</span><span>44 × 44</span></div><div class="row"><span>Barra de pestañas</span><span>56 + 24 DE INDICADOR</span></div>
+        </div>
+        <div class="col">
+          <span class="k">Componentes</span>
+          <div class="tr"><small style="color:#d62a6e">1</small><div><b style="color:#dc4a84">Adiós Amor</b><em>La Delio Valdez</em></div><time>3:41</time></div>
+          <div class="tr"><small>2</small><div><b>Bombón Asesino</b><em>Los Palmeras</em></div><time>3:12</time></div>
+          <div class="mp"><img src="images/tema-cumbia.jpg" alt=""><div><b>Adiós Amor</b><small>LA DELIO VALDEZ</small></div>${ico('pause')}${ico('next')}<i></i></div>
+          <div class="tb"><div class="on">${ico('tab-home')}<span>CUADRA</span></div><div>${ico('tab-playlists')}<span>PLAYLISTS</span></div><div>${ico('tab-wave')}<span>EN VIVO</span></div><div>${ico('tab-star')}<span>FESTIVAL</span></div><div>${ico('tab-user')}<span>VOS</span></div></div>
+        </div>
+      </div>
+      <hr>
+      <span class="k">Estados</span>
+      <div class="states" style="margin-top:18px">
+        <div><span class="m" style="display:block;margin-bottom:12px">Vacío</span><div class="st">${ico('empty-playlists')}<b>Todavía no guardaste nada</b><p>Tocá el corazón en cualquier tema y aparece acá.</p></div></div>
+        <div><span class="m" style="display:block;margin-bottom:12px">Cargando</span><div class="st sk" style="align-items:stretch;justify-content:center"><i></i><i style="width:74%"></i><i style="width:88%"></i><i style="width:52%"></i></div></div>
+        <div><span class="m" style="display:block;margin-bottom:12px">Sin conexión</span><div class="st" style="--c:#e3922a">${ico('empty-volume').replace('<svg', '<svg style="color:#e3922a"')}<b>Estás sin datos</b><p>Podés seguir escuchando lo descargado.</p></div></div>
+        <div><span class="m" style="display:block;margin-bottom:12px">Aviso de peña</span><div class="st">${ico('empty-bell').replace('<svg', '<svg style="color:#d62a6e"')}<b>Mañana tenés peña</b><p>Ronda con orquesta · Plaza del Ángel · 22 h</p></div></div>
+      </div>
+      <a class="back" href="index.html">← VOLVER AL PROTOTIPO</a>`;
+  </script>
+</body>
+</html>

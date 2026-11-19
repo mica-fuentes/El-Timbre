@@ -1,0 +1,6 @@
+/* Fuentes autoalojadas (subset latin) — las mismas del Figma */
+@font-face { font-family: 'Archivo'; font-weight: 400 700; font-stretch: 100%; font-style: normal; font-display: swap; src: url(../assets/fonts/archivo.woff2) format('woff2'); }
+@font-face { font-family: 'Archivo Black'; font-weight: 400; font-style: normal; font-display: swap; src: url(../assets/fonts/archivo-black.woff2) format('woff2'); }
+@font-face { font-family: 'Barrio'; font-weight: 400; font-style: normal; font-display: swap; src: url(../assets/fonts/barrio.woff2) format('woff2'); }
+@font-face { font-family: 'Space Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(../assets/fonts/space-mono.woff2) format('woff2'); }
+@font-face { font-family: 'Space Mono'; font-weight: 700; font-style: normal; font-display: swap; src: url(../assets/fonts/space-mono-bold.woff2) format('woff2'); }

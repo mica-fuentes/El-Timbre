@@ -1,0 +1,81 @@
+/* ───────────────────────────────────────────────────────────
+   El Timbre · componentes compartidos entre pantallas
+   ─────────────────────────────────────────────────────────── */
+.hdot { display: inline-block; border-radius: 50%; background: var(--ac); flex: none; }
+.a { position: absolute; }
+
+/* Banderines */
+.bn { position: absolute; width: 18px; height: 21px; pointer-events: none; }
+.bn::before { content: ""; position: absolute; left: 1.2px; width: 15.6px; height: 15.75px; background: var(--c); }
+.bn-down::before { top: 5.25px; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: 50% 0; animation: sway-d 4.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.bn-up::before { top: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); transform-origin: 50% 100%; animation: sway-u 4.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes sway-d { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes sway-u { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(-4deg); } }
+.bunting-strip { position: relative; height: 15px; overflow: hidden; }
+
+/* Puntitos de pasos */
+.steps { position: absolute; left: 20px; top: 732.5px; display: flex; gap: 10px; align-items: center; }
+.steps i { display: block; width: 9px; height: 3px; border-radius: 1.5px; background: var(--line-2); transition: width 320ms var(--ease-out), background-color .3s; }
+.steps i.on { width: 22px; background: var(--cum); }
+
+/* Fila de tema */
+.trow { position: relative; display: flex; align-items: center; min-height: 38px; padding: 0 20px; cursor: pointer; transition: background-color var(--t-fast), padding var(--t-fast); }
+.trow-n { width: 22px; flex: none; text-align: center; font: 400 12px/18px var(--f-mono); color: var(--text-3); margin-right: 12px; transition: color var(--t-fast); }
+.trow-thumb { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; margin-right: 12px; flex: none; }
+.trow-m { flex: 1; min-width: 0; display: block; }
+.trow-m b { display: block; font: 600 15px/20px var(--f-body); letter-spacing: -.1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color var(--t-fast); }
+.trow-m small { display: block; font: 400 12.5px/17px var(--f-body); color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trow-eq { margin-right: 14px; }
+.trow-h { width: 28px; height: 28px; display: grid; place-items: center; color: var(--text-3); margin-right: 6px; border-radius: 50%; transition: color var(--t-fast), transform var(--t-fast); }
+.trow-h .ico { font-size: 17px; }
+.trow-h:hover { color: var(--text); transform: scale(1.15); }
+.trow-h.on { color: var(--ac-t, var(--cum-t)); }
+.trow-h.on .ico path { fill: currentColor; }
+.trow-h.pop, .fbtn.pop, .gbtn.pop { animation: pop 420ms var(--ease-spring); }
+@keyframes pop { 0% { transform: scale(1); } 35% { transform: scale(1.22); } 100% { transform: scale(1); } }
+.trow-d { font: 400 10px/15px var(--f-mono); color: var(--text-3); width: 30px; text-align: right; flex: none; letter-spacing: .3px; }
+.trow.is-playing .trow-n, .trow.is-playing .trow-m b { color: var(--ac-t); }
+@media (hover: hover) {
+  .trow:hover { background: rgba(239, 231, 218, .05); }
+  .trow:hover .trow-n { color: var(--text); }
+}
+.trow:active { background: rgba(239, 231, 218, .09); }
+
+/* Tarjeta de playlist */
+.plcard { flex: none; text-align: left; cursor: pointer; display: block; }
+.plcard-img { position: relative; border-radius: 4px; overflow: hidden; background: var(--skeleton); }
+.plcard-img img { width: 100%; height: 100%; object-fit: cover; }
+.plcard-bar { position: absolute; left: 0; top: 0; width: 100%; height: 4px; background: var(--ac); }
+.plcard h3 { font: 600 13.5px/17px var(--f-body); margin-top: 10px; letter-spacing: -.1px; }
+.plcard p { font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: var(--text-3); margin-top: 6px; text-transform: uppercase; }
+
+/* Botón seguir (pastilla chica) */
+.fbtn { height: 34px; padding: 0 16px; border-radius: 17px; border: 1px solid var(--line-3); font: 700 9.5px/14px var(--f-mono); letter-spacing: 1.3px; color: var(--text); text-transform: uppercase; transition: all var(--t-fast) var(--ease-out); }
+.fbtn:hover { border-color: var(--text-2); background: rgba(239, 231, 218, .06); transform: translateY(-1px); }
+.fbtn.on { background: var(--ac-fill, var(--cum-t)); border-color: transparent; color: var(--on-accent); }
+.fbtn:active { transform: scale(.95); }
+
+/* Botón anotarme / voy */
+.gbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 34px; padding: 0 14px; border-radius: 17px; border: 1px solid var(--line-3); font: 400 9.5px/14px var(--f-mono); letter-spacing: 1.3px; color: var(--text); white-space: nowrap; transition: all var(--t-fast) var(--ease-out); }
+.gbtn .ico { font-size: 14px; }
+.gbtn:hover { border-color: var(--text-2); background: rgba(239, 231, 218, .06); transform: translateY(-1px); }
+.gbtn.on { background: var(--ac-fill); border-color: transparent; color: var(--on-accent); font-weight: 700; height: 32px; }
+.gbtn:active { transform: scale(.95); }
+
+/* Nombres de casa en pills de color */
+.house-tag { display: inline-flex; align-items: center; gap: 6px; font: 700 9px/12px var(--f-mono); letter-spacing: 1.3px; text-transform: uppercase; color: var(--ac-t); }
+
+/* Estados vacíos (sistema de diseño → ESTADOS) */
+.empty { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 32px 20px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.empty .ico { font-size: 30px; color: var(--text); }
+.empty.warn .ico { color: var(--fol); }
+.empty.bell .ico { color: var(--cum); }
+.empty b { font: 600 13.5px/20px var(--f-body); }
+.empty p { font: 400 12px/17px var(--f-body); color: var(--text-3); max-width: 216px; }
+.skel { display: flex; flex-direction: column; gap: 9px; }
+.skel i { display: block; height: 11px; border-radius: 5.5px; background: var(--skeleton); animation: shimmer 1.4s ease-in-out infinite; }
+@keyframes shimmer { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* Foto con velo duotono */
+.photo { position: relative; overflow: hidden; background: var(--skeleton); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

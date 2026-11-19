@@ -1,0 +1,52 @@
+/* 08–11 · Casas */
+.bar.solid::before { content: ""; position: absolute; left: 0; right: 0; top: -44px; height: 94px; background: var(--bg); z-index: -1; transition: background-color .5s; }
+.cs-page { position: relative; width: 390px; height: 1460px; }
+.cs-hero { position: absolute; left: 0; top: 94px; width: 390px; height: 244px; overflow: hidden;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 52%, #0b0d12) 0%, color-mix(in srgb, var(--ac) 22%, #0b0d12) 70%, var(--bg) 100%); }
+.cs-trama { position: absolute; inset: 0; background: url(../images/trama-noche.png) -20px -10px / 195px 228px repeat; opacity: .3; mix-blend-mode: overlay; animation: tramadrift 60s linear infinite; }
+@keyframes tramadrift { to { background-position: 175px 218px; } }
+.cs-glow { position: absolute; left: -60px; top: -80px; width: 340px; height: 260px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--ac) 55%, transparent), transparent); }
+.cs-house { position: absolute; object-fit: contain; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .35)); animation: float 6s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(.6deg); } }
+.cs-acc { position: absolute; left: 20px; top: 86px; width: 34px; height: 3px; background: var(--ac); }
+.cs-name { position: absolute; left: 20px; top: 101px; width: 214px; margin: 0; font: 400 26px/27px var(--f-black); letter-spacing: -.8px; color: #efe7da; animation: titlein 600ms var(--ease-out) both; }
+.cs-lead { position: absolute; left: 20px; top: 192px; width: 214px; margin: 0; font: 400 13.5px/17px var(--f-body); color: rgba(239, 231, 218, .85); }
+[data-theme="day"] .cs-hero { background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 80%, #0b0d12) 0%, color-mix(in srgb, var(--ac) 38%, #0b0d12) 100%); }
+
+.cs-wave { position: absolute; left: 20px; top: 346px; width: 350px; height: 40px; display: flex; align-items: flex-end; justify-content: space-between; }
+.cs-wave i { display: block; width: 2px; background: var(--ac); border-radius: 1px; transform-origin: bottom; }
+.cs-wave.live i { animation: wv 1.1s ease-in-out infinite; }
+.cs-wave.live i:nth-child(5n+1) { animation-delay: -.2s; } .cs-wave.live i:nth-child(5n+2) { animation-delay: -.5s; } .cs-wave.live i:nth-child(5n+3) { animation-delay: -.8s; } .cs-wave.live i:nth-child(5n+4) { animation-delay: -.35s; }
+@keyframes wv { 0%, 100% { transform: scaleY(.7); } 50% { transform: scaleY(1.12); } }
+.cs-radio { position: absolute; left: 20px; top: 386px; width: 162px; padding: 0; }
+.cs-follow { position: absolute; left: 192px; top: 386px; width: 76px; padding: 0; }
+.btn-ghost.on { background: var(--ac-fill); border-color: transparent; color: var(--on-accent); }
+.cs-now { position: absolute; left: 20px; top: 440px; margin: 0; height: 12px; display: flex; align-items: center; gap: 7px; }
+.cs-now .hdot { width: 6px; height: 6px; animation: pulse 1.6s ease-in-out infinite; }
+.cs-tabs { position: absolute; left: 0; top: 472px; width: 390px; display: flex; gap: 8px; padding: 0 20px; overflow-x: auto; scrollbar-width: none; }
+.cs-tabs::-webkit-scrollbar { display: none; }
+.cs-tabs .pill { height: 36px; flex: none; }
+.cs-h { position: absolute; left: 20px; margin: 0; }
+.cs-more { position: absolute; right: 20px; color: var(--text-3); transition: color var(--t-fast), transform var(--t-fast); }
+.cs-more:hover { color: var(--text); transform: translateX(2px); }
+.cs-sub { position: absolute; left: 20px; width: 350px; margin: 0; font: 400 13px/17px var(--f-body); color: var(--text-2); }
+.cs-list { position: absolute; left: 0; top: 556px; width: 390px; }
+.cs-list .trow { height: 37.5px; min-height: 0; }
+.cs-pls { position: absolute; left: 0; top: 715px; width: 390px; padding: 6px 20px 8px; display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; }
+.cs-pls::-webkit-scrollbar { display: none; }
+.plcard h3 { min-height: 36px; }
+.plcard p { margin-top: 2px; }
+.cs-arts { position: absolute; left: 0; top: 995px; width: 390px; display: flex; padding: 0 14px; }
+.cs-art { width: 92px; flex: none; text-align: center; padding-bottom: 8px; }
+.cs-art .zoomwrap { display: block; width: 76px; height: 76px; margin: 0 auto; border-radius: 14px; background: var(--skeleton); }
+.cs-art img { width: 100%; height: 100%; object-fit: cover; }
+.cs-art b { display: block; margin-top: 8px; font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: var(--text-2); text-transform: uppercase; }
+.cs-ag { position: absolute; left: 0; width: 390px; height: 40px; }
+.cs-agd { position: absolute; left: 20px; top: 11px; color: var(--ac-t); }
+.cs-ag h3 { position: absolute; left: 79px; top: 0; margin: 0; font: 600 15px/20px var(--f-body); letter-spacing: -.1px; }
+.cs-ag p { position: absolute; left: 79px; top: 23px; margin: 0; font: 400 9px/12px var(--f-mono); letter-spacing: 1.3px; color: var(--text-3); text-transform: uppercase; }
+.cs-gbtn { position: absolute; right: 12px; top: 1px; }
+.cs-nota { position: absolute; left: 20px; top: 1330px; width: 350px; padding: 12px; display: flex; gap: 14px; align-items: center; text-align: left; flex-wrap: wrap; }
+.cs-nota .photo { width: 72px; height: 72px; border-radius: 10px; flex: none; }
+.cs-nota b { flex: 1; font: 600 15px/20px var(--f-body); min-width: 0; }
+.cs-nota small { display: none; }
